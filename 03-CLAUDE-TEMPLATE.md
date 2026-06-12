@@ -2,6 +2,7 @@
 
 > Đây là MẪU. Khi chạy SETUP-PROMPT, Claude sẽ tạo `CLAUDE.md` thật theo cấu hình của bạn.
 > Bạn cũng có thể copy nội dung dưới, thay các `<...>` và lưu thành `CLAUDE.md` ở gốc kho.
+> Nên tạo thêm `AGENTS.md` với NỘI DUNG GIỐNG HỆT (bản song sinh) để mọi công cụ AI — không chỉ Claude — đều đọc được luật. Sửa file nào thì đồng bộ file kia.
 
 ---
 
@@ -34,10 +35,14 @@ Hạ tầng: `index.md` (mục lục, đọc đầu tiên), `log.md` (nhật ký
 - **QUERY:** đọc `index.md` → tìm note → trả lời kèm trích dẫn `[[..]]` → đề xuất tạo note nếu có ý mới.
 - **LINT:** rà mâu thuẫn, note mồ côi, link treo, đề xuất hợp nhất; cập nhật `index.md`.
 
+## Cách người dùng tương tác (trigger phrases)
+- "pull và check có gì mới" → đồng bộ đầu phiên · "ingest cái này" → INGEST
+- "tôi đã ghi gì về X" → QUERY · "thêm note X vào mảng Y" → tạo note · "lint second brain" → LINT
+
 ## Luật đồng bộ Git (nếu bật sync)
 1. Đầu phiên `git pull --rebase`. 2. Check: `git fetch && git log HEAD..origin/main --oneline`.
 3. Remote đi trước → thông báo & pull, KHÔNG ghi đè. 4. Auto push khi data đổi (trừ nội dung nhạy cảm).
-5. Push thẳng `main`, không nhánh/PR. 6. Commit message tiếng Việt, ngắn gọn. 7. Repo mới luôn PRIVATE.
+5. Push thẳng `main`, không nhánh/PR. 6. Commit message tiếng Việt, ngắn gọn. 7. Repo mới mặc định PRIVATE (đổi nếu bạn muốn public).
 
 ## Nguyên tắc
 - Repo private — không đưa nội dung nhạy cảm ra log/tool ngoài.
