@@ -1,49 +1,82 @@
-# 📚 Giải thích kiến thức: Vì sao Second Brain này hoạt động
+# 📚 Giải thích kiến thức: LLM Wiki = Second Brain + AI
 
-Đọc file này khi bạn muốn hiểu *tại sao* hệ thống được thiết kế như vậy — không bắt buộc để dùng, nhưng giúp bạn customize tốt hơn.
+Đọc file này để hiểu *bản chất* hệ thống. Có 2 lớp ý tưởng ghép lại: **Second Brain** (Tiago Forte) + **cách tổ chức Wiki/Zettelkasten**, rồi thêm **AI (LLM)** để vận hành.
 
-## 1. Vấn đề: con người ghét "bookkeeping"
-Ai cũng muốn có kho ghi chú gọn gàng, liên kết chặt. Nhưng việc **bảo trì** mới giết chết hầu hết hệ thống: cập nhật liên kết chéo, giữ tóm tắt mới, gỡ mâu thuẫn, dọn note trùng. Con người mệt và quên; **AI thì không** — nó có thể sửa 10-15 file cùng lúc, không bao giờ quên cập nhật link.
+---
 
-→ Ý tưởng cốt lõi: **con người curate nguồn + đặt câu hỏi; AI làm toàn bộ bảo trì.**
+## 1. Second Brain là gì? (nền tảng — Tiago Forte)
+**Second Brain = một hệ thống SỐ lưu trữ thông tin thay cho não thật**, để bộ não dành sức cho việc nó giỏi nhất: **ra quyết định & sáng tạo**.
 
-## 2. LLM Wiki pattern (Andrej Karpathy)
-Khác với RAG (tra lại thông tin mỗi lần hỏi), LLM Wiki coi kho kiến thức là **một artifact bền vững, cộng dồn** mà AI liên tục viết và làm giàu. Nguồn: https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
+> Nguyên tắc cốt lõi: **Second Brain PHỤC VỤ First Brain (não thật), KHÔNG thay thế.** Bạn vẫn là người suy nghĩ và quyết định — kho chỉ là bộ nhớ ngoài đáng tin.
 
-## 3. Kiến trúc 3 lớp
+**Bài toán nó giải:**
+- Đọc xong sách 1 tháng quên ~90%.
+- Thông tin rải rác khắp nơi: Slack / Drive / giấy / chat AI.
+- Mỗi tuần mất thời gian tìm lại file cũ.
+- Ý hay lúc 11h đêm → sáng quên sạch; họp xong action items biến mất.
+
+**Lợi ích — chỉ thấy rõ khi tích luỹ 6 tháng+:**
+| Lợi ích | Cụ thể |
+|---|---|
+| Compound effect | 1 quyết định mới được hỗ trợ bởi hàng trăm note cũ |
+| Pattern cá nhân | Đọc lại note cũ thấy mình lặp lỗi / insight |
+| Idea generation | 2 note tự link qua `[[wikilink]]` → bật ra insight (Zettelkasten) |
+| Career portability | Đổi công ty, kiến thức vẫn là của bạn |
+| Tăng tốc viết | 1 bài 2-3h thay vì 6-8h |
+
+*"1 note hôm nay = giúp 100 quyết định trong 5 năm tới" — nhưng chỉ khi kiên trì tích luỹ + distill (chắt lọc).*
+
+## 2. Cách tổ chức: Wiki + Zettelkasten
+Để kho không thành "bãi rác note", ta tổ chức như một **wiki**:
+- **1 note = 1 ý** (atomic), đặt tên rõ ràng.
+- **Liên kết `[[wikilink]]`** giữa các note → tạo mạng tri thức (Zettelkasten). Chính các liên kết này sinh ra insight, và hiện thành **graph** trong Obsidian.
+- **MOC (Map of Content)** = note cửa ngõ gom các note cùng chủ đề.
+
+→ **Chính cách tổ chức wiki này LÀ "second brain" của bạn** — một mạng kiến thức liên kết, không phải đống file rời.
+
+## 3. Điểm KHÁC BIỆT: thêm AI (LLM Wiki)
+Đây là chỗ tiến hoá so với Second Brain truyền thống (vốn con người tự bảo trì). Tham khảo *LLM Wiki pattern* của Andrej Karpathy: https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
+
+Với một **LLM** cắm vào kho, AI giúp bạn:
+- **Extract** — đọc nguồn thô (bài viết, PDF, chat) và rút ý chính.
+- **Tổ chức & Quản lý** — tạo note đúng quy ước, đặt đúng mảng, cập nhật mục lục.
+- **Link** — tự nối `[[wikilink]]` giữa các note liên quan, giữ mạng liên kết luôn sống.
+- **Truy vấn** — bạn hỏi tự nhiên, AI tổng hợp từ kho và trích dẫn nguồn.
+
+> ⚠️ **KHÔNG phải "AI quản lý hết thay bạn".** Vai trò vẫn rạch ròi:
+> - **Con người** curate nguồn, đặt câu hỏi, ra quyết định (First Brain).
+> - **AI** lo phần *bookkeeping* mệt mỏi (viết note, cập nhật liên kết, chắt lọc, dò mâu thuẫn) — thứ giết chết hầu hết hệ thống tự-tay.
+> - **File markdown** vẫn là **nơi lưu trữ** thật sự — của bạn, mở được mọi nơi, không khoá vào app nào.
+
+Nói gọn: **bạn curate + hỏi; AI làm bookkeeping; file là kho.**
+
+## 4. Kiến trúc 3 lớp (hiện thực hoá ý trên)
 ```
 ┌─────────────────────────────────────────────┐
 │  raw/      Nguồn gốc bất biến (AI chỉ ĐỌC)    │  ← bạn bỏ bài viết, PDF, ảnh, ghi chú thô
 ├─────────────────────────────────────────────┤
-│  wiki/     Tri thức do AI SỞ HỮU & bảo trì    │  ← note .md liên kết chéo, chia theo mảng
+│  wiki/     Tri thức do AI tổ chức & bảo trì   │  ← note .md liên kết chéo, chia theo mảng
 ├─────────────────────────────────────────────┤
-│  CLAUDE.md Schema = LUẬT vận hành             │  ← quy ước + workflow + luật sync
+│  CLAUDE.md / AGENTS.md   Luật vận hành        │  ← để mọi AI làm việc nhất quán
 └─────────────────────────────────────────────┘
         +  index.md (mục lục, AI đọc trước)
         +  log.md   (nhật ký append-only)
 ```
 
-## 4. Ba workflow
-- **INGEST (nạp):** đưa nguồn → AI lưu `raw/`, chắt lọc, tạo/cập nhật note trong `wiki/`, thêm `[[liên kết]]`, cập nhật mục lục, ghi log, sync git. *Một nguồn có thể chạm 5–15 note.*
-- **QUERY (hỏi):** AI đọc `index.md` → tìm note → trả lời kèm trích dẫn `[[..]]`. Hiểu biết mới đáng giữ → đề xuất tạo note (không để trôi vào chat).
+## 5. Ba workflow
+- **INGEST (nạp):** đưa nguồn → AI lưu `raw/`, extract, tạo/cập nhật note `wiki/`, link chéo, cập nhật mục lục, ghi log, sync git.
+- **QUERY (hỏi):** AI đọc `index.md` → tìm note → trả lời kèm trích dẫn `[[..]]`; ý mới đáng giữ → tạo note (không để trôi vào chat).
 - **LINT (dọn):** định kỳ rà mâu thuẫn, note mồ côi, link treo, đề xuất hợp nhất.
 
-## 5. Vì sao dùng Obsidian + Markdown + Git
-- **Markdown** = file `.md` thuần → mở được mọi nơi, không khoá vào app nào.
-- **Obsidian** = giao diện đọc/sửa + **Graph View** trực quan hoá mạng `[[wikilink]]` (local-first, miễn phí).
-- **Git** = lịch sử phiên bản + đồng bộ nhiều máy + cộng tác, miễn phí với repo private.
+## 6. Vì sao Obsidian + Markdown + Git
+- **Markdown** = file `.md` thuần → mở mọi nơi, không khoá vào app.
+- **Obsidian** = giao diện + **Graph View** trực quan hoá mạng `[[wikilink]]` (local-first, miễn phí).
+- **Git** = lịch sử phiên bản + đồng bộ nhiều máy, miễn phí.
+- **Luật trong `CLAUDE.md`/`AGENTS.md`** → bất kỳ AI nào đọc cũng vận hành giống nhau ("context engineering").
 
-## 6. Vì sao đặt luật trong `CLAUDE.md`
-Vì luật nằm trong file, **bất kỳ AI/agent nào** đọc nó (Claude Code, Claude Desktop, MCP…) đều vận hành **giống nhau** — đây chính là "context engineering": cấu trúc ngữ cảnh để hành vi nhất quán, linh hoạt cắm vào nhiều nguồn AI.
-
-## 7. Cách customize theo bạn
-- **Mảng (domains):** đổi `ca-nhan/cong-viec/cuoc-song` thành bất cứ gì hợp với bạn (vd `hoc-tap`, `khach-hang`, `tai-chinh`).
-- **Nguồn dữ liệu:** cắm Notion / Google Drive / Gmail / Slack… qua MCP connector; ghi cách kết nối vào `CLAUDE.md` để AI biết lấy dữ liệu ở đâu.
-- **Quy ước note:** giữ "1 note = 1 ý" + liên kết nhiều → graph càng giàu, AI tổng hợp càng tốt.
-
-## Nguồn tham khảo (đọc thêm)
-- LLM Wiki — Karpathy: https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
-- Building a Second Brain — Tiago Forte: https://www.buildingasecondbrain.com/book
+## Nguồn tham khảo
+- Second Brain / CODE / PARA — Tiago Forte: https://www.buildingasecondbrain.com/book
+- LLM Wiki — Andrej Karpathy: https://gist.github.com/karpathy/442a6bf555914893e9891c11519de94f
 - How to Take Smart Notes (Zettelkasten) — Sönke Ahrens: https://www.soenkeahrens.de/en/takesmartnotes
 - Evergreen notes — Andy Matuschak: https://notes.andymatuschak.org/Evergreen_notes
 - Obsidian: https://obsidian.md/
